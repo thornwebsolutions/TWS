@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thorn Webb Solutions | Website Design, Development & App Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -386,23 +387,13 @@
 
         .about-photo {
             width: 280px;
-            height: 320px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px dashed rgba(255, 255, 255, 0.15);
             border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 14px;
+            overflow: hidden;
         }
 
-        .about-photo svg {
-            width: 50px;
-            height: 50px;
-            stroke: rgba(255, 255, 255, 0.3);
-            margin-bottom: 15px;
+        .about-photo img {
+            width: 100%;
+            display: block;
         }
 
         .about-text h2 {
@@ -419,14 +410,15 @@
             margin-bottom: 25px;
         }
 
-        .about-text .bio-placeholder {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px dashed rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            padding: 30px;
-            color: rgba(255, 255, 255, 0.5);
+        .about-text .bio p {
+            color: rgba(255, 255, 255, 0.7);
             font-size: 15px;
             line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-text .bio p:last-child {
+            margin-bottom: 0;
         }
 
         /* Contact Section */
@@ -565,7 +557,7 @@
                 margin: 0 auto;
             }
 
-            .about-text .bio-placeholder {
+            .about-text .bio {
                 text-align: left;
             }
 
@@ -724,19 +716,15 @@
         <div class="section-container">
             <div class="about-content">
                 <div class="about-photo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    <span>Photo placeholder</span>
+                    <img src="assets/family.JPG" alt="Chris Thorn">
                 </div>
                 <div class="about-text">
                     <h2>Chris Thorn</h2>
                     <p class="title">Founder, Thorn Web Solutions</p>
-                    <div class="bio-placeholder">
-                        Your bio will go here. Share your story, experience, and passion for helping organizations succeed online. Talk about your background, what drives you, and why clients should trust you with their web presence.
-                        <br><br>
-                        You can add 2-3 paragraphs here to give visitors a personal connection to the person behind Thorn Webb Solutions.
+                    <div class="bio">
+                        <p>Hello and welcome to Thorn Web Solutions — a software and web design company built on the belief that great websites come from great relationships. For over five years, I've worked as a software engineer, and throughout that time, building websites has always been one of my biggest passions.</p>
+                        <p>My goal has never been to deliver one-off projects, but to partner with business owners in a way that feels personal, supportive, and genuinely helpful. I focus on making the process simple, removing the technical stress that so many entrepreneurs face, and providing solutions that stay affordable without sacrificing quality.</p>
+                        <p>Every organization deserves a website that reflects who they are and the positive impact they make. I'm here to help you bring that vision to life.</p>
                     </div>
                 </div>
             </div>
