@@ -77,6 +77,30 @@
             color: #10b981;
         }
 
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .nav-cta svg {
+            width: 16px;
+            height: 16px;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -244,6 +268,159 @@
             line-height: 1.7;
         }
 
+        /* How It Works Section */
+        #how-it-works {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .step-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #10b981;
+        }
+
+        .step-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-stars svg {
+            width: 18px;
+            height: 18px;
+            fill: #fbbf24;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author strong {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-author span {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+        }
+
         /* Pricing Section */
         #pricing {
             position: relative;
@@ -269,6 +446,55 @@
             right: 0;
             height: 4px;
             background: linear-gradient(90deg, #10b981, #38bdf8);
+        }
+
+        .sale-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .price-original {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: line-through;
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .price-wrapper {
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-end;
+        }
+
+        .sale-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #10b981;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+        }
+
+        .sale-urgency {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
         }
 
         .pricing-label {
@@ -344,6 +570,10 @@
             margin-bottom: 12px;
             font-size: 15px;
             color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing-feature:first-child {
+            margin-top: 12px;
         }
 
         .pricing-feature svg {
@@ -542,7 +772,10 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            .services-grid {
+            .services-grid,
+            .steps-grid,
+            .testimonials-grid,
+            .portfolio-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
                 margin: 0 auto;
@@ -563,6 +796,16 @@
 
             .nav-links {
                 display: none;
+            }
+
+            .nav-cta {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .nav-cta svg {
+                width: 14px;
+                height: 14px;
             }
         }
 
@@ -593,10 +836,17 @@
             <div class="logo">Thorn<span>Web</span></div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="tel:239-357-7391" class="nav-cta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Call Now
+            </a>
         </div>
     </nav>
 
@@ -653,6 +903,70 @@
         </div>
     </section>
 
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Getting your website up and running is simple.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Contact</h3>
+                    <p>Reach out and tell me about your project. We'll discuss your goals, vision, and requirements.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3>Design</h3>
+                    <p>I'll create a custom design tailored to your brand with unlimited revisions until you love it.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Launch</h3>
+                    <p>Your site goes live and I handle all the technical details. Sit back and watch your business grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Work</h2>
+                <p>A selection of websites we've designed and developed.</p>
+            </div>
+            <div class="portfolio-grid">
+                <a href="https://www.32dentalsc.com/" target="_blank" class="portfolio-item">
+                    <img src="assets/www.32dentalsc.com_.png" alt="32 Dental SC Website">
+                </a>
+                <a href="https://builderbase.co/" target="_blank" class="portfolio-item">
+                    <img src="assets/builderbase.co_.png" alt="BuilderBase Website">
+                </a>
+                <a href="https://exterior-detailing.vercel.app/" target="_blank" class="portfolio-item">
+                    <img src="assets/exterior-detailing.vercel.app_.png" alt="Exterior Detailing Website">
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section id="pricing">
         <div class="section-container">
@@ -661,22 +975,29 @@
                 <p>No hidden fees. Just quality work at fair prices.</p>
             </div>
             <div class="pricing-card">
+                <div class="sale-badge">December Sale</div>
                 <div class="pricing-label">Website Package</div>
                 <div class="pricing-title">Design & Development</div>
-                
+
                 <div class="price-row">
                     <div class="price-item-label">
-                        <strong>One-Time Setup</strong>
+                        <strong>One-Time Setup<span class="sale-tag">80% Off</span></strong>
                         <span>Up to 5 custom pages</span>
                     </div>
-                    <div class="price-amount"><sup>$</sup>199</div>
+                    <div class="price-wrapper">
+                        <span class="price-original">$999</span>
+                        <div class="price-amount"><sup>$</sup>199</div>
+                    </div>
                 </div>
                 <div class="price-row">
                     <div class="price-item-label">
-                        <strong>Monthly Management</strong>
+                        <strong>Monthly Management<span class="sale-tag">Save $26</span></strong>
                         <span>Ongoing support & updates</span>
                     </div>
-                    <div class="price-amount"><sup>$</sup>99<sub>/mo</sub></div>
+                    <div class="price-wrapper">
+                        <span class="price-original">$125</span>
+                        <div class="price-amount"><sup>$</sup>99<sub>/mo</sub></div>
+                    </div>
                 </div>
 
                 <div class="pricing-features">
@@ -702,9 +1023,23 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span>Reliable maintenance & support</span>
+                        <span>Unlimited revisions until you love it</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Free SSL & hosting setup included</span>
+                    </div>
+                    <div class="pricing-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>No long-term contracts</span>
                     </div>
                 </div>
+
+                <p class="sale-urgency">Sale ends December 31st</p>
 
                 <a href="#contact" class="pricing-btn">Get Started</a>
             </div>
@@ -725,6 +1060,60 @@
                         <p>Hello and welcome to Thorn Web Solutions — a software and web design company built on the belief that great websites come from great relationships. For over five years, I've worked as a software engineer, and throughout that time, building websites has always been one of my biggest passions.</p>
                         <p>My goal has never been to deliver one-off projects, but to partner with business owners in a way that feels personal, supportive, and genuinely helpful. I focus on making the process simple, removing the technical stress that so many entrepreneurs face, and providing solutions that stay affordable without sacrificing quality.</p>
                         <p>Every organization deserves a website that reflects who they are and the positive impact they make. I'm here to help you bring that vision to life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>What Clients Say</h2>
+                <p>Don't just take my word for it.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Chris completely transformed our online presence. The website exceeded our expectations and we've seen a significant increase in customer inquiries since launching."</p>
+                    <div class="testimonial-author">
+                        <strong>Shivani Patel</strong>
+                        <span>Owner, 32 Dental</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Professional, responsive, and incredibly easy to work with. Chris delivered our site in under a week and the ongoing support has been fantastic. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <strong>Alex Sardina</strong>
+                        <span>Founder, Exterior Detailing</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"As a small business owner, I needed something affordable but professional. Chris delivered exactly that. The monthly management takes all the stress away."</p>
+                    <div class="testimonial-author">
+                        <strong>Emily Chen</strong>
+                        <span>Owner, Serenity Spa & Wellness</span>
                     </div>
                 </div>
             </div>
