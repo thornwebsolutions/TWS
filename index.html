@@ -24,6 +24,7 @@
             background: linear-gradient(165deg, #0a1628 0%, #1a2d4a 50%, #0f1f35 100%);
             color: #ffffff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -820,6 +821,22 @@
 
             .pricing-card {
                 padding: 35px 25px;
+            }
+
+            .price-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .price-wrapper {
+                align-self: flex-start;
+            }
+
+            .price-item-label strong {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
             }
 
             .price-amount {
