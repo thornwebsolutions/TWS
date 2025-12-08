@@ -78,6 +78,7 @@
             font-size: 24px;
             font-weight: 700;
             color: #ffffff;
+            text-decoration: none;
         }
 
         .logo span {
@@ -786,6 +787,87 @@
             color: #ef4444;
         }
 
+        /* Blog Section */
+        .blog-grid-home {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .blog-card-home {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 25px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .blog-card-home:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .blog-card-home h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .blog-card-home p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .blog-card-home .read-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #10b981;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .blog-card-home .read-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card-home:hover .read-link svg {
+            transform: translateX(4px);
+        }
+
+        .view-all-posts {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .view-all-posts a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .view-all-posts a:hover {
+            color: #10b981;
+        }
+
+        .view-all-posts svg {
+            width: 18px;
+            height: 18px;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -800,10 +882,15 @@
             .services-grid,
             .steps-grid,
             .testimonials-grid,
-            .portfolio-grid {
+            .portfolio-grid,
+            .blog-grid-home {
                 grid-template-columns: 1fr;
                 max-width: 400px;
                 margin: 0 auto;
+            }
+
+            .blog-grid-home {
+                margin-top: 40px;
             }
 
             .about-content {
@@ -1003,28 +1090,12 @@
         ]
     }
     </script>
+    <link rel="stylesheet" href="/css/header.css">
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Thorn<span>Web</span></div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="tel:239-357-7391" class="nav-cta">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-                Call Now
-            </a>
-        </div>
-    </nav>
+    <div id="header"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1222,6 +1293,60 @@
         </div>
     </section>
 
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>From the Blog</h2>
+                <p>Tips and insights to help your business succeed online</p>
+            </div>
+
+            <div class="blog-grid-home">
+                <a href="/blog/how-much-does-a-website-cost.html" class="blog-card-home">
+                    <h3>How Much Does a Website Cost in 2025?</h3>
+                    <p>A complete breakdown of website pricing, from DIY options to professional development.</p>
+                    <span class="read-link">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="/blog/how-much-does-website-maintenance-cost.html" class="blog-card-home">
+                    <h3>How Much Does Website Maintenance Cost?</h3>
+                    <p>Learn what's included in website maintenance and how to budget for keeping your site secure.</p>
+                    <span class="read-link">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </a>
+
+                <a href="/blog/why-is-my-website-not-showing-up-on-google.html" class="blog-card-home">
+                    <h3>Why Is My Website Not Showing Up on Google?</h3>
+                    <p>10 common reasons your site isn't appearing in search results and how to fix them.</p>
+                    <span class="read-link">
+                        Read More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+
+            <div class="view-all-posts">
+                <a href="/blog.html">
+                    View All Posts
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about">
         <div class="section-container">
@@ -1386,5 +1511,6 @@
             }
         });
     </script>
+    <script src="/js/header.js"></script>
 </body>
 </html>

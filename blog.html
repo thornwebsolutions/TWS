@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWJW27V7PC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JWJW27V7PC');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Blog | Tips & Insights | Thorn Web Solutions</title>
+    <link rel="icon" type="image/png" href="faviconPNG.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Web design tips, pricing guides, and insights for small businesses and nonprofits. Learn how to build an effective online presence.">
+    <link rel="canonical" href="https://thornwebsolutions.com/blog.html">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thornwebsolutions.com/blog.html">
+    <meta property="og:title" content="Web Design Blog | Thorn Web Solutions">
+    <meta property="og:description" content="Web design tips, pricing guides, and insights for small businesses and nonprofits.">
+    <meta property="og:image" content="https://thornwebsolutions.com/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(165deg, #0a1628 0%, #1a2d4a 50%, #0f1f35 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 30px 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px 100px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-card-image svg {
+            width: 48px;
+            height: 48px;
+            stroke: #10b981;
+            opacity: 0.5;
+        }
+
+        .blog-card-content {
+            padding: 25px;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 12px;
+        }
+
+        .blog-card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #10b981;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .read-more svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .read-more svg {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #10b981;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div id="header"></div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Blog</h1>
+        <p>Web design tips, pricing guides, and insights to help your business succeed online.</p>
+    </header>
+
+    <!-- Blog Posts -->
+    <section class="blog-section">
+        <div class="blog-grid">
+
+            <!-- How Much Does a Website Cost -->
+            <a href="/blog/how-much-does-a-website-cost.html" class="blog-card">
+                <div class="blog-card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span>November 2025</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2>How Much Does a Website Cost in 2025?</h2>
+                    <p>A complete breakdown of website pricing, from DIY options to professional development. Learn what factors affect cost and what to expect.</p>
+                    <span class="read-more">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Why Is My Website Not Showing Up on Google -->
+            <a href="/blog/why-is-my-website-not-showing-up-on-google.html" class="blog-card">
+                <div class="blog-card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35-4.35"></path>
+                    </svg>
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span>November 2025</span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2>Why Is My Website Not Showing Up on Google?</h2>
+                    <p>Website not appearing in search results? Learn the 10 most common reasons and exactly how to fix them to get found online.</p>
+                    <span class="read-more">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- How Much Does Website Maintenance Cost -->
+            <a href="/blog/how-much-does-website-maintenance-cost.html" class="blog-card">
+                <div class="blog-card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span>November 2025</span>
+                        <span>7 min read</span>
+                    </div>
+                    <h2>How Much Does Website Maintenance Cost?</h2>
+                    <p>Website maintenance costs $50-$300/month. Learn what's included, why it matters, and how to budget for keeping your site secure.</p>
+                    <span class="read-more">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Is WordPress Good for Small Business -->
+            <a href="/blog/is-wordpress-good-for-small-business.html" class="blog-card">
+                <div class="blog-card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span>November 2025</span>
+                        <span>9 min read</span>
+                    </div>
+                    <h2>Is WordPress Good for Small Business?</h2>
+                    <p>An honest look at the pros and cons of WordPress for small business websites. Find out if it's the right choice for you.</p>
+                    <span class="read-more">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- How Much Does a Website Redesign Cost -->
+            <a href="/blog/how-much-does-a-website-redesign-cost.html" class="blog-card">
+                <div class="blog-card-image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span>November 2025</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2>How Much Does a Website Redesign Cost?</h2>
+                    <p>Website redesign costs $500-$10,000+. Learn what affects pricing, when a redesign is worth it, and how to budget for your refresh.</p>
+                    <span class="read-more">
+                        Read Article
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Thorn Web Solutions. All rights reserved. | <a href="/">Home</a></p>
+    </footer>
+
+    <script src="/js/header.js"></script>
+    <script>createHeader('blog');</script>
+</body>
+</html>
