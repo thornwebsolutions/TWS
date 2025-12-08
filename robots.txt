@@ -1,0 +1,8 @@
+# robots.txt for Thorn Web Solutions
+# https://thornwebsolutions.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://thornwebsolutions.com/sitemap.xml
