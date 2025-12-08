@@ -13,7 +13,7 @@ function createHeader(activePage = '') {
             <ul class="nav-links">
                 <li><a href="/#services" ${activePage === 'services' ? 'class="active"' : ''}>Services</a></li>
                 <li><a href="/#pricing" ${activePage === 'pricing' ? 'class="active"' : ''}>Pricing</a></li>
-                <li><a href="/blog.html" ${activePage === 'blog' ? 'class="active"' : ''}>Blog</a></li>
+                <li><a href="/blog" ${activePage === 'blog' ? 'class="active"' : ''}>Blog</a></li>
                 <li><a href="/#contact" ${activePage === 'contact' ? 'class="active"' : ''}>Contact</a></li>
             </ul>
 
@@ -35,7 +35,7 @@ function createHeader(activePage = '') {
             <ul class="mobile-nav-links">
                 <li><a href="/#services">Services</a></li>
                 <li><a href="/#pricing">Pricing</a></li>
-                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/blog">Blog</a></li>
                 <li><a href="/#contact">Contact</a></li>
             </ul>
             <a href="tel:239-357-7391" class="mobile-cta">
