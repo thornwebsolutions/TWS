@@ -1,0 +1,7 @@
+# Thorn Web Solutions
+# https://www.thornwebsolutions.com
+
+# This file provides information for AI crawlers and language models.
+
+Allow: /
+Contact: christopherthornn@gmail.com
