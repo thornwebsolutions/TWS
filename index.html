@@ -12,22 +12,22 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design in Elgin & Columbia SC | Thorn Web Solutions</title>
+    <title>Custom Websites for Service Businesses | Thorn Web Solutions</title>
     <link rel="icon" type="image/png" href="faviconPNG.png">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Professional web design in Elgin, South Carolina. Serving small businesses and nonprofits in Columbia, Camden, Lugoff & the Midlands. Custom websites starting at $199. Free consultation.">
+    <meta name="description" content="Custom websites for established service businesses. Clean, conversion-focused web design that builds trust and turns visitors into inquiries. Serving South Carolina and beyond.">
     <link rel="canonical" href="https://www.thornwebsolutions.com/">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.thornwebsolutions.com/">
-    <meta property="og:title" content="Web Design in Elgin, SC | Thorn Web Solutions">
-    <meta property="og:description" content="Professional web design in Elgin, South Carolina. Serving Columbia & the Midlands. Custom websites for small businesses starting at $199.">
+    <meta property="og:title" content="Custom Websites for Service Businesses | Thorn Web Solutions">
+    <meta property="og:description" content="Clean, conversion-focused websites for established service businesses. We design sites that build trust, reduce friction, and generate real inquiries.">
     <meta property="og:image" content="https://www.thornwebsolutions.com/assets/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Web Design in Elgin, SC | Thorn Web Solutions">
-    <meta name="twitter:description" content="Professional web design in Elgin, South Carolina. Serving Columbia & the Midlands. Custom websites starting at $199.">
+    <meta name="twitter:title" content="Custom Websites for Service Businesses | Thorn Web Solutions">
+    <meta name="twitter:description" content="Clean, conversion-focused websites for established service businesses. We design sites that build trust, reduce friction, and generate real inquiries.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -207,6 +207,32 @@
         .hero-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .hero-btn-secondary:hover {
+            transform: translateY(-2px);
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
         }
 
         /* Section Styles */
@@ -452,161 +478,145 @@
             position: relative;
         }
 
-        .pricing-card {
-            max-width: 500px;
+        .pricing-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .pricing-intro p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
             margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .pricing-intro p:first-child {
+            margin-bottom: 8px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 50px 45px;
+            padding: 40px 30px;
             text-align: center;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .pricing-card::before {
-            content: '';
+        .pricing-card.featured {
+            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.08);
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 20px 50px rgba(16, 185, 129, 0.25), 0 0 0 1px rgba(16, 185, 129, 0.3);
+        }
+
+
+        .popular-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #10b981, #38bdf8);
-        }
-
-        .sale-badge {
-            display: inline-block;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
             padding: 6px 16px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .pricing-tier-icon {
+            font-size: 32px;
             margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-        }
-
-        .price-original {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.4);
-            text-decoration: line-through;
-            margin-right: 10px;
-            font-weight: 500;
-        }
-
-        .price-wrapper {
-            display: flex;
-            align-items: baseline;
-            justify-content: flex-end;
-        }
-
-        .sale-tag {
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            color: #10b981;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-left: 8px;
-        }
-
-        .sale-urgency {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        .pricing-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 10px;
         }
 
         .pricing-title {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 35px;
+            margin-bottom: 8px;
         }
 
-        .price-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        .pricing-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
         }
 
-        .price-row:last-of-type {
-            border-bottom: none;
-            margin-bottom: 30px;
+        .pricing-price {
+            margin-bottom: 25px;
         }
 
-        .price-item-label {
-            text-align: left;
-        }
-
-        .price-item-label strong {
-            display: block;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .price-item-label span {
-            font-size: 13px;
+        .pricing-price .starting {
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.5);
+            display: block;
+            margin-bottom: 5px;
         }
 
-        .price-amount {
-            font-size: 36px;
+        .pricing-price .amount {
+            font-size: 42px;
             font-weight: 700;
             color: #10b981;
         }
 
-        .price-amount sup {
-            font-size: 18px;
+        .pricing-price .amount sup {
+            font-size: 20px;
             vertical-align: super;
         }
 
-        .price-amount sub {
+        .pricing-includes {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: left;
         }
 
         .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
             text-align: left;
-            margin-bottom: 35px;
+            flex-grow: 1;
         }
 
-        .pricing-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .pricing-features li {
+            position: relative;
+            padding-left: 28px;
             margin-bottom: 12px;
-            font-size: 15px;
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
         }
 
-        .pricing-feature:first-child {
-            margin-top: 12px;
-        }
-
-        .pricing-feature svg {
+        .pricing-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 3px;
             width: 18px;
             height: 18px;
-            stroke: #10b981;
-            flex-shrink: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2.5'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
         .pricing-btn {
@@ -620,11 +630,114 @@
             font-weight: 600;
             text-decoration: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: auto;
         }
 
         .pricing-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .pricing-btn-secondary {
+            display: block;
+            width: 100%;
+            background: transparent;
+            color: white;
+            padding: 16px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+            margin-top: auto;
+        }
+
+        .pricing-btn-secondary:hover {
+            transform: translateY(-2px);
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        /* Maintenance Section */
+        #maintenance {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .maintenance-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .maintenance-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .maintenance-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .maintenance-optional {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 25px;
+        }
+
+        .maintenance-price {
+            margin-bottom: 40px;
+        }
+
+        .maintenance-price .starting {
+            display: block;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 8px;
+        }
+
+        .maintenance-price .amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .maintenance-price .amount sup {
+            font-size: 24px;
+            vertical-align: super;
+        }
+
+        .maintenance-price .period {
+            font-size: 20px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .maintenance-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .maintenance-pill {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 50px;
+            padding: 16px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .maintenance-pill:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.4);
         }
 
         /* About Section */
@@ -883,9 +996,20 @@
             .steps-grid,
             .testimonials-grid,
             .portfolio-grid,
-            .blog-grid-home {
+            .blog-grid-home,
+            .pricing-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .pricing-card.featured {
+                order: -1;
+            }
+
+            .maintenance-features {
+                grid-template-columns: 1fr;
+                max-width: 300px;
                 margin: 0 auto;
             }
 
@@ -962,7 +1086,7 @@
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Thorn Web Solutions",
-        "description": "Professional website design and development services for small businesses, nonprofits, and entrepreneurs.",
+        "description": "Custom websites for established service businesses. Clean, conversion-focused web design that builds trust and turns visitors into inquiries.",
         "url": "https://www.thornwebsolutions.com",
         "telephone": "+1-239-357-7391",
         "email": "christopherthornn@gmail.com",
@@ -977,74 +1101,12 @@
             "postalCode": "29045",
             "addressCountry": "US"
         },
-        "areaServed": [
-            {
-                "@type": "City",
-                "name": "Elgin",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "South Carolina"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Columbia",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "South Carolina"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Camden",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "South Carolina"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Lugoff",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "South Carolina"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Lexington",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "South Carolina"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Irmo",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "South Carolina"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Blythewood",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "South Carolina"
-                }
-            },
-            {
-                "@type": "City",
-                "name": "Sumter",
-                "containedInPlace": {
-                    "@type": "State",
-                    "name": "South Carolina"
-                }
-            }
-        ],
-        "priceRange": "$$",
-        "serviceType": ["Website Design", "Web Development", "App Development", "Website Management"],
+        "areaServed": {
+            "@type": "State",
+            "name": "South Carolina"
+        },
+        "priceRange": "$$$",
+        "serviceType": ["Website Design", "Web Development", "Website Care & Support"],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Web Design Services",
@@ -1053,27 +1115,31 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Website Design & Development",
-                        "description": "Custom, mobile-responsive website with up to 5 pages"
+                        "name": "Starter Website",
+                        "description": "A custom-designed website for service businesses that need a clean, professional online presence."
                     },
-                    "price": "199",
+                    "price": "2500",
                     "priceCurrency": "USD"
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Monthly Website Management",
-                        "description": "Ongoing support, updates, and maintenance"
+                        "name": "Professional Growth Website",
+                        "description": "A strategically designed website built to strengthen your brand and convert visitors into leads."
                     },
-                    "price": "99",
-                    "priceCurrency": "USD",
-                    "priceSpecification": {
-                        "@type": "UnitPriceSpecification",
-                        "price": "99",
-                        "priceCurrency": "USD",
-                        "unitText": "month"
-                    }
+                    "price": "6500",
+                    "priceCurrency": "USD"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Advanced / Custom Website",
+                        "description": "A fully custom website experience designed for scale, performance, and long-term growth."
+                    },
+                    "price": "9500",
+                    "priceCurrency": "USD"
                 }
             ]
         },
@@ -1117,7 +1183,7 @@
                     "@type": "Rating",
                     "ratingValue": "5"
                 },
-                "reviewBody": "As a small business owner, I needed something affordable but professional. Chris delivered exactly that. The monthly management takes all the stress away."
+                "reviewBody": "Working with Thorn Web Solutions was a great experience. The process was simple and the result exceeded expectations. The monthly management takes all the stress away."
             }
         ]
     }
@@ -1133,9 +1199,12 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">Design • Develop • Support</div>
-            <h1>Web Design in Columbia & Elgin, SC That <span>Makes an Impact</span></h1>
-            <p>Professional website design and development for small businesses and nonprofits. Based in Elgin, proudly serving Columbia, Lexington, Irmo, and the Midlands.</p>
-            <a href="#contact" class="hero-btn">Get Started Today</a>
+            <h1>Custom Websites for <span>Established Service Businesses</span></h1>
+            <p>We design clean, conversion-focused websites that build trust, reduce friction, and turn visitors into real inquiries.</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="hero-btn">View Our Work</a>
+                <a href="#pricing" class="hero-btn-secondary">See Pricing</a>
+            </div>
         </div>
     </section>
 
@@ -1156,7 +1225,7 @@
                         </svg>
                     </div>
                     <h3>Website Design & Development</h3>
-                    <p>Custom, mobile-responsive websites built to showcase your brand and engage your audience effectively.</p>
+                    <p>Custom websites designed to reflect your brand, establish credibility, and guide visitors toward taking action.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -1165,18 +1234,18 @@
                             <polyline points="9 12 11 14 15 10"></polyline>
                         </svg>
                     </div>
-                    <h3>Monthly Management</h3>
-                    <p>Ongoing support, updates, security monitoring, and maintenance to keep your site running smoothly.</p>
+                    <h3>Ongoing Support & Maintenance</h3>
+                    <p>Ongoing care to keep your website secure, fast, and up to date — without the hassle.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
                     </div>
-                    <h3>App Development</h3>
-                    <p>Custom mobile and web applications designed to streamline your operations and serve your users.</p>
+                    <h3>SEO-Ready Foundations</h3>
+                    <p>Every site is built with clean structure and best practices that support long-term visibility.</p>
                 </div>
             </div>
         </div>
@@ -1187,7 +1256,7 @@
         <div class="section-container">
             <div class="section-header">
                 <h2>How It Works</h2>
-                <p>Getting your website up and running is simple.</p>
+                <p>A straightforward process designed around your business.</p>
             </div>
             <div class="steps-grid">
                 <div class="step-card">
@@ -1196,8 +1265,8 @@
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
                     </div>
-                    <h3>Contact</h3>
-                    <p>Reach out and tell me about your project. We'll discuss your goals, vision, and requirements.</p>
+                    <h3>Discovery & Strategy</h3>
+                    <p>We learn about your business, goals, and customers to plan a site that supports growth.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-icon">
@@ -1208,8 +1277,8 @@
                             <circle cx="11" cy="11" r="2"></circle>
                         </svg>
                     </div>
-                    <h3>Design</h3>
-                    <p>I'll create a custom design tailored to your brand with unlimited revisions until you love it.</p>
+                    <h3>Custom Design & Build</h3>
+                    <p>We design and develop a high-performance website tailored to your brand.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-icon">
@@ -1218,8 +1287,8 @@
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
                     </div>
-                    <h3>Launch</h3>
-                    <p>Your site goes live and I handle all the technical details. Sit back and watch your business grow.</p>
+                    <h3>Launch & Support</h3>
+                    <p>We handle launch, analytics setup, and ongoing support so your site runs smoothly.</p>
                 </div>
             </div>
         </div>
@@ -1230,14 +1299,14 @@
         <div class="section-container">
             <div class="section-header">
                 <h2>Our Work</h2>
-                <p>A selection of websites we've designed and developed.</p>
+                <p>A selection of recent projects for service-based organizations.</p>
             </div>
             <div class="portfolio-grid">
+                <a href="https://www.goldengrovefl.com/" target="_blank" class="portfolio-item">
+                    <img src="assets/gg.png" alt="Golden Grove FL Website">
+                </a>
                 <a href="https://www.32dentalsc.com/" target="_blank" class="portfolio-item">
                     <img src="assets/www.32dentalsc.com_.png" alt="32 Dental SC Website">
-                </a>
-                <a href="https://builderbase.co/" target="_blank" class="portfolio-item">
-                    <img src="assets/builderbase.co_.png" alt="BuilderBase Website">
                 </a>
                 <a href="https://exterior-detailing.vercel.app/" target="_blank" class="portfolio-item">
                     <img src="assets/exterior-detailing.vercel.app_.png" alt="Exterior Detailing Website">
@@ -1251,76 +1320,89 @@
         <div class="section-container">
             <div class="section-header">
                 <h2>Simple, Transparent Pricing</h2>
-                <p>No hidden fees. Just quality work at fair prices.</p>
+                <p>Pricing based on your business needs.</p>
             </div>
-            <div class="pricing-card">
-                <div class="sale-badge">December Sale</div>
-                <div class="pricing-label">Website Package</div>
-                <div class="pricing-title">Design & Development</div>
-
-                <div class="price-row">
-                    <div class="price-item-label">
-                        <strong>One-Time Setup<span class="sale-tag">80% Off</span></strong>
-                        <span>Up to 5 custom pages</span>
+            <div class="pricing-intro">
+                <p>Most established service businesses choose our Professional Growth Website.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Starter Website -->
+                <div class="pricing-card">
+                    <div class="pricing-tier-icon">&#127793;</div>
+                    <h3 class="pricing-title">Starter Website</h3>
+                    <p class="pricing-subtitle">Best for new or small service businesses</p>
+                    <div class="pricing-price">
+                        <span class="starting">Starting at</span>
+                        <span class="amount"><sup>$</sup>2,500</span>
                     </div>
-                    <div class="price-wrapper">
-                        <span class="price-original">$999</span>
-                        <div class="price-amount"><sup>$</sup>199</div>
-                    </div>
-                </div>
-                <div class="price-row">
-                    <div class="price-item-label">
-                        <strong>Monthly Management<span class="sale-tag">Save $26</span></strong>
-                        <span>Ongoing support & updates</span>
-                    </div>
-                    <div class="price-wrapper">
-                        <span class="price-original">$125</span>
-                        <div class="price-amount"><sup>$</sup>99<sub>/mo</sub></div>
-                    </div>
+                    <ul class="pricing-features">
+                        <li>Custom 5 page website</li>
+                        <li>Mobile-first, fast-loading build</li>
+                        <li>Clear call-to-action and contact flow</li>
+                        <li>Basic on-page SEO structure</li>
+                        <li>Launch-ready within 1-2 weeks</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn-secondary">Get Started</a>
                 </div>
 
-                <div class="pricing-features">
-                    <div class="pricing-feature">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Custom, mobile-responsive design</span>
+                <!-- Professional Growth Website -->
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-tier-icon">&#128640;</div>
+                    <h3 class="pricing-title">Growth Website</h3>
+                    <p class="pricing-subtitle">For established businesses ready to grow</p>
+                    <div class="pricing-price">
+                        <span class="starting">Starting at</span>
+                        <span class="amount"><sup>$</sup>6,500</span>
                     </div>
-                    <div class="pricing-feature">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Fast 5-day average turnaround</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>SEO-optimized for visibility</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Unlimited revisions until you love it</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Free SSL & hosting setup included</span>
-                    </div>
-                    <div class="pricing-feature">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>No long-term contracts</span>
-                    </div>
+                    <p class="pricing-includes">Everything in Starter, plus:</p>
+                    <ul class="pricing-features">
+                        <li>Multi-section or multi-page custom design</li>
+                        <li>Conversion-focused layout and messaging</li>
+                        <li>Strategic content structure for services</li>
+                        <li>SEO-ready foundation (technical + on-page)</li>
+                        <li>Analytics and performance setup</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn">Schedule a Call</a>
                 </div>
 
-                <p class="sale-urgency">Sale ends December 31st</p>
+                <!-- Advanced / Custom Website -->
+                <div class="pricing-card">
+                    <div class="pricing-tier-icon">&#127959;</div>
+                    <h3 class="pricing-title">Advanced Website</h3>
+                    <p class="pricing-subtitle">For companies with complex needs</p>
+                    <div class="pricing-price">
+                        <span class="starting">Starting at</span>
+                        <span class="amount"><sup>$</sup>9,500</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Fully custom website architecture</li>
+                        <li>Advanced service or project layouts</li>
+                        <li>Scalability planning for future growth</li>
+                        <li>Integrations (CRM, forms, automations)</li>
+                        <li>Ongoing collaboration throughout build</li>
+                    </ul>
+                    <a href="#contact" class="pricing-btn-secondary">Request a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <a href="#contact" class="pricing-btn">Get Started</a>
+    <!-- Maintenance Section -->
+    <section id="maintenance">
+        <div class="section-container">
+            <div class="maintenance-content">
+                <h2>Ongoing Support & Maintenance</h2>
+                <div class="maintenance-price">
+                    <span class="starting">Starting at</span>
+                    <span class="amount"><sup>$</sup>125<span class="period">/ month</span></span>
+                </div>
+                <div class="maintenance-features">
+                    <div class="maintenance-pill">Website updates & content changes</div>
+                    <div class="maintenance-pill">Security and performance monitoring</div>
+                    <div class="maintenance-pill">Software updates and backups</div>
+                    <div class="maintenance-pill">Dedicated priority support</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1390,8 +1472,8 @@
                     <h2>Chris Thorn</h2>
                     <p class="title">Founder, Thorn Web Solutions</p>
                     <div class="bio">
-                        <p>Hello and welcome to Thorn Web Solutions — a web design company based in Elgin, South Carolina, serving small businesses throughout Columbia, Lexington, Irmo, and the greater Midlands region. For over five years, I've worked as a software engineer, and throughout that time, building websites has always been one of my biggest passions.</p>
-                        <p>My goal has never been to deliver one-off projects, but to partner with business owners in a way that feels personal, supportive, and genuinely helpful. I focus on making the process simple, removing the technical stress that so many entrepreneurs face, and providing solutions that stay affordable without sacrificing quality.</p>
+                        <p>Welcome to Thorn Web Solutions. We partner with service-based businesses nationwide. For over five years, I've worked as a software engineer, and throughout that time, building websites has always been one of my biggest passions.</p>
+                        <p>My goal has never been to deliver one-off projects, but to partner with business owners in a way that feels personal, supportive, and genuinely helpful. I focus on making the process simple and removing the technical stress that so many entrepreneurs face.</p>
                         <p>Every organization deserves a website that reflects who they are and the positive impact they make. I'm here to help you bring that vision to life.</p>
                     </div>
                 </div>
@@ -1415,20 +1497,6 @@
                         <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                         <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     </div>
-                    <p class="testimonial-text">"Chris completely transformed our online presence. The website exceeded our expectations and we've seen a significant increase in customer inquiries since launching."</p>
-                    <div class="testimonial-author">
-                        <strong>Shivani Patel</strong>
-                        <span>Owner, 32 Dental</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    </div>
                     <p class="testimonial-text">"Professional, responsive, and incredibly easy to work with. Chris delivered our site in under a week and the ongoing support has been fantastic. Highly recommend!"</p>
                     <div class="testimonial-author">
                         <strong>Alex Sardina</strong>
@@ -1443,10 +1511,24 @@
                         <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                         <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     </div>
-                    <p class="testimonial-text">"As a small business owner, I needed something affordable but professional. Chris delivered exactly that. The monthly management takes all the stress away."</p>
+                    <p class="testimonial-text">"Chris completely transformed our online presence. The website exceeded our expectations and we've seen a significant increase in customer inquiries since launching."</p>
                     <div class="testimonial-author">
-                        <strong>Emily Chen</strong>
-                        <span>Owner, Serenity Spa & Wellness</span>
+                        <strong>Shivani Patel</strong>
+                        <span>Owner, 32 Dental</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Communication was clear, turnaround was fast, and the sites function exactly how we needed them to. He's knowledgeable, professional, and easy to work with. Highly recommend for anyone needing solid, reliable web development."</p>
+                    <div class="testimonial-author">
+                        <strong>John Sardina</strong>
+                        <span>Owner, Golden Grove FL</span>
                     </div>
                 </div>
             </div>
@@ -1458,7 +1540,7 @@
         <div class="section-container">
             <div class="section-header">
                 <h2>Let's Work Together</h2>
-                <p>Ready to elevate your online presence? Contact your local Columbia SC web designer today.</p>
+                <p>Ready to elevate your online presence? Let's discuss how we can help your business grow.</p>
             </div>
             <div class="contact-card">
                 <h3>Send a Message</h3>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWJW27V7PC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JWJW27V7PC');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>December Sale - 80% Off Website Design | Thorn Web Solutions</title>
+    <link rel="icon" type="image/png" href="faviconPNG.png">
+
+    <!-- IMPORTANT: This page is hidden from search engines -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(165deg, #0a1628 0%, #1a2d4a 50%, #0f1f35 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Minimal Header */
+        .header {
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #10b981;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px 30px 60px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(56, 189, 248, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .sale-banner {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #10b981;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 550px;
+            margin: 0 auto 10px;
+        }
+
+        .urgency {
+            font-size: 16px;
+            color: #ef4444;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* Pricing Card */
+        .pricing-section {
+            padding: 40px 30px 80px;
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px 45px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #38bdf8);
+        }
+
+        .sale-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .pricing-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .price-row:last-of-type {
+            border-bottom: none;
+            margin-bottom: 30px;
+        }
+
+        .price-item-label {
+            text-align: left;
+        }
+
+        .price-item-label strong {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .price-item-label span {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .sale-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #10b981;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+        }
+
+        .price-wrapper {
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-end;
+        }
+
+        .price-original {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: line-through;
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .price-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .price-amount sup {
+            font-size: 18px;
+            vertical-align: super;
+        }
+
+        .price-amount sub {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing-feature:first-child {
+            margin-top: 12px;
+        }
+
+        .pricing-feature svg {
+            width: 18px;
+            height: 18px;
+            stroke: #10b981;
+            flex-shrink: 0;
+        }
+
+        .sale-urgency {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            text-align: center;
+            padding: 0 30px 60px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trust-section p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .trust-section strong {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #10b981;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .pricing-card {
+                padding: 40px 25px;
+            }
+
+            .price-row {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .price-item-label {
+                text-align: center;
+            }
+
+            .price-wrapper {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Header - Logo Only -->
+    <header class="header">
+        <span class="logo">Thorn<span>.</span></span>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="sale-banner">Limited Time Offer</div>
+            <h1>December Sale: <span>80% Off</span> Website Design</h1>
+            <p>Get a professional, custom website for your business at our lowest price of the year.</p>
+            <p class="urgency">Sale ends December 31st</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="pricing-card">
+            <div class="sale-badge">December Sale</div>
+            <div class="pricing-label">Website Package</div>
+            <div class="pricing-title">Design & Development</div>
+
+            <div class="price-row">
+                <div class="price-item-label">
+                    <strong>One-Time Setup<span class="sale-tag">80% Off</span></strong>
+                    <span>Up to 5 custom pages</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="price-original">$999</span>
+                    <div class="price-amount"><sup>$</sup>199</div>
+                </div>
+            </div>
+            <div class="price-row">
+                <div class="price-item-label">
+                    <strong>Monthly Management<span class="sale-tag">Save $26</span></strong>
+                    <span>Ongoing support & updates</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="price-original">$125</span>
+                    <div class="price-amount"><sup>$</sup>99<sub>/mo</sub></div>
+                </div>
+            </div>
+
+            <div class="pricing-features">
+                <div class="pricing-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Custom, mobile-responsive design</span>
+                </div>
+                <div class="pricing-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Fast 5-day average turnaround</span>
+                </div>
+                <div class="pricing-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>SEO-optimized for visibility</span>
+                </div>
+                <div class="pricing-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Unlimited revisions until you love it</span>
+                </div>
+                <div class="pricing-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Free SSL & hosting setup included</span>
+                </div>
+                <div class="pricing-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>No long-term contracts</span>
+                </div>
+            </div>
+
+            <p class="sale-urgency">Sale ends December 31st</p>
+
+            <a href="tel:+12393577391" class="pricing-btn">Call Now: (239) 357-7391</a>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <div class="trust-section">
+        <p><strong>Questions?</strong> Call or text: (239) 357-7391</p>
+        <p>Email: christopherthornn@gmail.com</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Thorn Web Solutions. All rights reserved. | <a href="/">Visit Main Site</a></p>
+    </footer>
+
+</body>
+</html>

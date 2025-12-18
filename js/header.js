@@ -8,7 +8,7 @@ function createHeader(activePage = '') {
     header.innerHTML = `
     <nav>
         <div class="nav-container">
-            <a href="/" class="logo">Thorn<span>Web</span></a>
+            <a href="/" class="logo">Thorn<span>.</span></a>
 
             <ul class="nav-links">
                 <li><a href="/#services" ${activePage === 'services' ? 'class="active"' : ''}>Services</a></li>
