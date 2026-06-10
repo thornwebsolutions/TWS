@@ -1,0 +1,9 @@
+# robots.txt for Thorn Web Solutions
+# https://www.thornwebsolutions.com
+
+User-agent: *
+Allow: /
+Disallow: /december-sale
+
+# Sitemap location
+Sitemap: https://www.thornwebsolutions.com/sitemap-index.xml

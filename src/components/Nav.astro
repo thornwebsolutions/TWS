@@ -1,0 +1,194 @@
+---
+import { navLinks, site } from '../data/site';
+import Icon from './Icon.astro';
+---
+<nav class="nav" data-nav>
+  <div class="nav-inner container">
+    <a href="/" class="logo" aria-label={`${site.name} home`}>
+      Thorn<span>.</span>
+    </a>
+
+    <ul class="nav-links">
+      {navLinks.map((l) => (
+        <li><a href={l.href}>{l.label}</a></li>
+      ))}
+    </ul>
+
+    <div class="nav-right">
+      <a href={site.phoneHref} class="nav-cta" data-magnetic="0.3">
+        <Icon name="phone" size={16} />
+        <span>{site.phoneDisplay}</span>
+      </a>
+      <button class="burger" aria-label="Toggle menu" aria-expanded="false" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" data-mobile-menu>
+    {navLinks.map((l) => (
+      <a href={l.href} data-mobile-link>{l.label}</a>
+    ))}
+    <a href={site.phoneHref} class="mobile-call">
+      <Icon name="phone" size={16} /> {site.phoneDisplay}
+    </a>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 16px 0;
+    transition: background 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.is-scrolled {
+    background: rgba(8, 16, 30, 0.72);
+    backdrop-filter: blur(16px);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    padding: 10px 0;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--color-emerald); }
+
+  .nav-links {
+    display: flex;
+    gap: 34px;
+    list-style: none;
+  }
+  .nav-links a {
+    position: relative;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.78);
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--color-emerald), var(--color-cyan));
+    transition: width 0.3s var(--ease-out-expo);
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.25);
+    transition: box-shadow 0.3s;
+  }
+  .nav-cta:hover { box-shadow: 0 10px 28px rgba(16, 185, 129, 0.45); }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .burger span {
+    display: block;
+    height: 2px;
+    width: 22px;
+    margin-inline: auto;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.35s var(--ease-out-expo), opacity 0.25s;
+  }
+  .nav.menu-open .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav.menu-open .burger span:nth-child(2) { opacity: 0; }
+  .nav.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.45s var(--ease-out-expo), opacity 0.35s, padding 0.45s;
+    padding: 0 30px;
+    background: rgba(8, 16, 30, 0.96);
+    backdrop-filter: blur(16px);
+  }
+  .nav.menu-open .mobile-menu {
+    max-height: 420px;
+    opacity: 1;
+    padding: 12px 30px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .mobile-menu a {
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .mobile-call {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-emerald) !important;
+    border-bottom: none !important;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+    .burger { display: flex; }
+    .nav-cta span { display: none; }
+    .nav-cta { padding: 10px; }
+  }
+</style>
+
+<script>
+  function setupNav() {
+    const nav = document.querySelector<HTMLElement>('[data-nav]');
+    const burger = document.querySelector<HTMLButtonElement>('[data-burger]');
+    if (!nav || !burger) return;
+
+    const toggle = (open?: boolean) => {
+      const next = open ?? !nav.classList.contains('menu-open');
+      nav.classList.toggle('menu-open', next);
+      burger.setAttribute('aria-expanded', String(next));
+    };
+
+    burger.addEventListener('click', () => toggle());
+    nav.querySelectorAll('[data-mobile-link], .mobile-call').forEach((a) =>
+      a.addEventListener('click', () => toggle(false))
+    );
+  }
+  document.addEventListener('astro:page-load', setupNav);
+</script>

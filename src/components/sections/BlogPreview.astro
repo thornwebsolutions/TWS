@@ -1,0 +1,55 @@
+---
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import BlogCard from '../BlogCard.astro';
+import Icon from '../Icon.astro';
+
+interface PostPreview {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category?: string;
+  readTime?: string;
+}
+interface Props {
+  posts: PostPreview[];
+}
+const { posts } = Astro.props;
+---
+<Section id="blog">
+  <SectionHeader
+    eyebrow="From the blog"
+    title="Tips to help you <span class='gradient-text'>succeed online</span>"
+    subtitle="Honest, practical insights on websites, SEO, and growing your business."
+  />
+
+  <div class="grid" data-reveal-group>
+    {posts.map((p) => (
+      <div data-reveal-item>
+        <BlogCard
+          href={`/blog/${p.slug}`}
+          title={p.title}
+          excerpt={p.excerpt}
+          category={p.category}
+          readTime={p.readTime}
+        />
+      </div>
+    ))}
+  </div>
+
+  <div class="all" data-reveal>
+    <a href="/blog" class="btn-ghost" data-magnetic="0.25">View all posts <Icon name="arrow" size={18} /></a>
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .all { text-align: center; margin-top: 44px; }
+  @media (max-width: 880px) {
+    .grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; }
+  }
+</style>

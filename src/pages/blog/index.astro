@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { site } from '../../data/site';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
+
+const [featured, ...rest] = posts;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const title = `Blog | ${site.name}`;
+const description =
+  'Practical tips on web design, SEO, pricing, and growing your service business online — from Thorn Web Solutions.';
+---
+<BaseLayout title={title} description={description} canonical="/blog">
+  <header class="blog-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Insights &amp; guides</span>
+      <h1 data-reveal>The <span class="gradient-text">Thorn</span> Blog</h1>
+      <p data-reveal>{description}</p>
+    </div>
+  </header>
+
+  <div class="container blog-body">
+    {featured && (
+      <a class="feature" href={`/blog/${featured.id}`} data-reveal data-cursor>
+        <div class="feature-meta">
+          <span class="cat">{featured.data.category}</span>
+          <h2>{featured.data.title}</h2>
+          <p>{featured.data.excerpt}</p>
+          <div class="byline">
+            <span>{featured.data.author}</span>
+            <span>·</span>
+            <span>{fmt(featured.data.publishDate)}</span>
+            <span>·</span>
+            <span>{featured.data.readTime}</span>
+          </div>
+          <span class="read">Read article →</span>
+        </div>
+        <div class="feature-badge"><span>Featured</span></div>
+      </a>
+    )}
+
+    {rest.length > 0 && (
+      <div class="grid" data-reveal-group>
+        {rest.map((p) => (
+          <div data-reveal-item>
+            <BlogCard
+              href={`/blog/${p.id}`}
+              title={p.data.title}
+              excerpt={p.data.excerpt}
+              category={p.data.category}
+              readTime={p.data.readTime}
+            />
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-hero { padding: 160px 0 50px; text-align: center; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-emerald);
+    margin-bottom: 16px;
+  }
+  .blog-hero h1 { font-family: var(--font-display); font-size: clamp(38px, 7vw, 64px); font-weight: 800; line-height: 1.1; }
+  .blog-hero p { max-width: 580px; margin: 18px auto 0; color: rgba(255, 255, 255, 0.62); font-size: 17px; line-height: 1.7; }
+
+  .blog-body { padding-bottom: 90px; }
+  .feature {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: linear-gradient(160deg, rgba(16, 185, 129, 0.12), rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: 24px;
+    padding: 46px;
+    margin-bottom: 30px;
+    transition: transform 0.45s var(--ease-out-expo), box-shadow 0.45s;
+  }
+  .feature:hover { transform: translateY(-5px); box-shadow: 0 30px 70px rgba(16, 185, 129, 0.15); }
+  .feature-meta { max-width: 680px; position: relative; z-index: 1; }
+  .cat {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-emerald-light);
+  }
+  .feature h2 { font-family: var(--font-display); font-size: clamp(26px, 4vw, 38px); font-weight: 700; line-height: 1.2; margin: 12px 0 14px; }
+  .feature p { color: rgba(255, 255, 255, 0.72); font-size: 17px; line-height: 1.7; margin-bottom: 18px; }
+  .byline { display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px; color: rgba(255, 255, 255, 0.5); margin-bottom: 20px; }
+  .read { color: var(--color-emerald); font-weight: 600; }
+  .feature-badge {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.25), transparent 70%);
+  }
+  .feature-badge span { display: none; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 880px) {
+    .grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+    .feature { padding: 32px 26px; }
+  }
+</style>

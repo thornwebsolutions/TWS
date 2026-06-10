@@ -1,0 +1,24 @@
+---
+interface Props {
+  id?: string;
+  panel?: boolean;
+  class?: string;
+}
+const { id, panel = false, class: className = '' } = Astro.props;
+---
+<section id={id} class={`section ${panel ? 'panel' : ''} ${className}`}>
+  <div class="container">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section { position: relative; padding: 110px 0; }
+  .panel {
+    background: rgba(255, 255, 255, 0.018);
+    border-block: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  @media (max-width: 640px) {
+    .section { padding: 80px 0; }
+  }
+</style>

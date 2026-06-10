@@ -1,0 +1,173 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { data } = post;
+const url = `${site.url}/blog/${post.id}`;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: data.title,
+  description: data.description,
+  author: { '@type': 'Person', name: data.author, url: `${site.url}/#about` },
+  publisher: { '@type': 'Organization', name: site.name, url: site.url },
+  datePublished: data.publishDate.toISOString().split('T')[0],
+  dateModified: (data.updatedDate ?? data.publishDate).toISOString().split('T')[0],
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  image: `${site.url}${site.ogImage}`,
+};
+
+const faqSchema =
+  data.faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      }
+    : null;
+
+const schemas = faqSchema ? [articleSchema, faqSchema] : [articleSchema];
+---
+<BaseLayout
+  title={`${data.title} | ${site.name}`}
+  description={data.description}
+  ogType="article"
+  canonical={`/blog/${post.id}`}
+  structuredData={schemas}
+>
+  <article>
+    <header class="article-header container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>/</span> <a href="/blog">Blog</a> <span>/</span>
+        <span class="current">{data.category}</span>
+      </nav>
+      <h1>{data.title}</h1>
+      <div class="meta">
+        <span>By {data.author}</span>
+        <span class="dot">·</span>
+        <span>{fmt(data.publishDate)}</span>
+        <span class="dot">·</span>
+        <span>{data.readTime}</span>
+      </div>
+    </header>
+
+    <div class="prose container">
+      <Content />
+
+      <div class="author-box">
+        <img src="/assets/family.JPG" alt={data.author} width="70" height="70" />
+        <div>
+          <h4>{data.author}</h4>
+          <p>Founder of {site.name}. I help service businesses build professional websites that actually get results. Serving clients nationwide.</p>
+        </div>
+      </div>
+    </div>
+
+    {data.faqs.length > 0 && (
+      <section class="faqs container">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          {data.faqs.map((f) => (
+            <details class="faq">
+              <summary>
+                <span>{f.question}</span>
+                <span class="chev"><Icon name="arrow" size={18} /></span>
+              </summary>
+              <p>{f.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <div class="post-cta container">
+      <a href="/#contact" class="btn-primary" data-magnetic="0.3">Get a free quote <Icon name="arrow" size={18} /></a>
+      <a href="/blog" class="back">← Back to all posts</a>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-header { max-width: 760px; padding: 150px 30px 30px; }
+  .breadcrumb { font-size: 14px; color: rgba(255, 255, 255, 0.5); margin-bottom: 22px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .breadcrumb a { transition: color 0.3s; }
+  .breadcrumb a:hover { color: var(--color-emerald); }
+  .breadcrumb .current { color: rgba(255, 255, 255, 0.75); }
+  .article-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 6vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 14.5px; color: rgba(255, 255, 255, 0.6); }
+  .meta .dot { color: rgba(255, 255, 255, 0.3); }
+
+  .author-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 26px;
+    margin: 54px 0 0;
+  }
+  .author-box img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .author-box h4 { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
+  .author-box p { font-size: 14px; color: rgba(255, 255, 255, 0.6); margin: 0; line-height: 1.6; }
+
+  .faqs { max-width: 760px; padding-block: 20px 10px; }
+  .faqs h2 { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 24px; }
+  .faq-list { display: flex; flex-direction: column; gap: 12px; }
+  .faq {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .faq summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .chev { color: var(--color-emerald); transition: transform 0.35s var(--ease-out-expo); transform: rotate(90deg); flex-shrink: 0; }
+  .faq[open] .chev { transform: rotate(-90deg); }
+  .faq p { padding: 0 24px 22px; margin: 0; color: rgba(255, 255, 255, 0.7); line-height: 1.7; }
+
+  .post-cta {
+    max-width: 760px;
+    padding: 50px 30px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  .back { color: rgba(255, 255, 255, 0.6); font-size: 15px; transition: color 0.3s; }
+  .back:hover { color: var(--color-emerald); }
+</style>

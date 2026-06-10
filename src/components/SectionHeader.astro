@@ -1,0 +1,41 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: 'center' | 'left';
+}
+const { eyebrow, title, subtitle, align = 'center' } = Astro.props;
+---
+<div class={`sec-head ${align}`}>
+  {eyebrow && <span class="eyebrow" data-reveal>{eyebrow}</span>}
+  <h2 data-reveal set:html={title} />
+  {subtitle && <p data-reveal set:html={subtitle} />}
+</div>
+
+<style>
+  .sec-head { margin-bottom: 60px; max-width: 640px; }
+  .sec-head.center { text-align: center; margin-inline: auto; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-emerald);
+    margin-bottom: 16px;
+  }
+  .sec-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .sec-head p {
+    margin-top: 16px;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.62);
+    line-height: 1.7;
+  }
+  .sec-head.center p { margin-inline: auto; }
+</style>

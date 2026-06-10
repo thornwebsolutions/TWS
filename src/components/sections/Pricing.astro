@@ -1,0 +1,140 @@
+---
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Icon from '../Icon.astro';
+import { tiers, customPricing } from '../../data/content';
+const tier = tiers[0];
+---
+<Section id="pricing">
+  <SectionHeader
+    eyebrow="Pricing"
+    title="Simple, <span class='gradient-text'>transparent pricing</span>"
+    subtitle="One straightforward package to get your business online — no hidden fees, no surprises."
+  />
+
+  <div class="grid" data-reveal-group>
+    <article class="card featured" data-reveal-item>
+      <span class="tier">{tier.label}</span>
+      <div class="price">
+        <sup>$</sup>{tier.price}
+      </div>
+      <h3>{tier.name}</h3>
+      <p class="desc">{tier.description}</p>
+      <ul class="features">
+        {tier.features.map((f) => (
+          <li><Icon name="check" size={18} /> <span>{f}</span></li>
+        ))}
+      </ul>
+      <a href="#contact" class="btn-primary" data-magnetic="0.25">Get started</a>
+    </article>
+  </div>
+
+  <div class="custom" data-reveal>
+    <div class="custom-icon"><Icon name="sparkle" size={22} /></div>
+    <p>{customPricing.text}</p>
+    <a href="#contact" class="custom-cta" data-magnetic="0.2">
+      {customPricing.ctaLabel} <Icon name="arrow" size={17} />
+    </a>
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
+    padding: 40px 34px;
+    transition: transform 0.45s var(--ease-out-expo), box-shadow 0.45s, border-color 0.4s;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 26px 60px rgba(0, 0, 0, 0.3); }
+  .featured {
+    border-color: rgba(16, 185, 129, 0.45);
+    background: linear-gradient(160deg, rgba(16, 185, 129, 0.1), rgba(255, 255, 255, 0.03));
+    box-shadow: 0 20px 60px rgba(16, 185, 129, 0.12);
+  }
+  .ribbon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #052e1b;
+    background: linear-gradient(135deg, var(--color-emerald-light), var(--color-emerald));
+    padding: 6px 14px;
+    border-radius: 50px;
+  }
+  .tier {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .price {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--color-emerald);
+    line-height: 1;
+    margin: 10px 0 6px;
+  }
+  .price sup { font-size: 24px; top: -0.7em; margin-right: 2px; }
+  .card h3 {
+    font-family: var(--font-display);
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .desc { font-size: 14px; color: rgba(255, 255, 255, 0.58); margin-bottom: 24px; line-height: 1.6; }
+  .features { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 30px; flex: 1; }
+  .features li { display: flex; gap: 11px; font-size: 14.5px; color: rgba(255, 255, 255, 0.82); line-height: 1.5; }
+  .features li :global(svg) { color: var(--color-emerald); flex-shrink: 0; margin-top: 2px; }
+
+  .custom {
+    max-width: 620px;
+    margin: 40px auto 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 30px 34px;
+  }
+  .custom-icon {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 14px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(56, 189, 248, 0.1));
+    color: var(--color-emerald-light);
+  }
+  .custom p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .custom-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-emerald);
+    transition: gap 0.3s var(--ease-out-expo);
+  }
+  .custom-cta :global(svg) { transition: transform 0.3s var(--ease-out-expo); }
+  .custom-cta:hover { gap: 12px; }
+  .custom-cta:hover :global(svg) { transform: translateX(3px); }
+</style>

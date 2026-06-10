@@ -1,0 +1,105 @@
+---
+import { site, navLinks } from '../data/site';
+import Icon from './Icon.astro';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo">Thorn<span>.</span></a>
+        <p>Custom, conversion-focused websites for established service businesses — designed, built, and supported.</p>
+        <div class="footer-contact">
+          <a href={site.phoneHref}><Icon name="phone" size={15} /> {site.phoneDisplay}</a>
+          <a href={`mailto:${site.email}`}><Icon name="mail" size={15} /> {site.email}</a>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <span class="footer-heading">Explore</span>
+        {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+        <a href="/blog">Blog</a>
+      </nav>
+
+      <div class="footer-cta">
+        <span class="footer-heading">Ready to grow?</span>
+        <p>Start a project or ask a question — I reply personally.</p>
+        <a href="/#contact" class="btn-primary" data-magnetic="0.3">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} {site.name}. All rights reserved.</p>
+      <p>{site.address.locality}, {site.address.region} · Serving {site.areaServed} &amp; beyond</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 70px 0 40px;
+    margin-top: 40px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1.2fr;
+    gap: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .logo {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .logo span { color: var(--color-emerald); }
+  .footer-brand p {
+    margin: 16px 0 20px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 15px;
+    max-width: 360px;
+    line-height: 1.7;
+  }
+  .footer-contact { display: flex; flex-direction: column; gap: 10px; }
+  .footer-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  .footer-contact a:hover { color: var(--color-emerald); }
+
+  .footer-nav, .footer-cta { display: flex; flex-direction: column; gap: 12px; }
+  .footer-heading {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 4px;
+  }
+  .footer-nav a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    transition: color 0.3s;
+  }
+  .footer-nav a:hover { color: #fff; }
+  .footer-cta p { color: rgba(255, 255, 255, 0.6); font-size: 14px; line-height: 1.6; }
+  .footer-cta .btn-primary { margin-top: 6px; align-self: flex-start; padding: 13px 28px; font-size: 15px; }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 28px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+  }
+
+  @media (max-width: 820px) {
+    .footer-top { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>

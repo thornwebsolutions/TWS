@@ -1,0 +1,106 @@
+---
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Icon from '../Icon.astro';
+import { portfolio } from '../../data/content';
+const featured = portfolio.slice(0, 3);
+---
+<Section id="portfolio" panel>
+  <SectionHeader
+    eyebrow="Selected work"
+    title="Recent <span class='gradient-text'>launches</span>"
+    subtitle="A selection of recent projects for service-based organizations."
+  />
+
+  <div class="grid" data-reveal-group>
+    {featured.map((p) => (
+      <a class="item" href={p.url} target="_blank" rel="noopener" data-reveal-item data-cursor>
+        <div class="shot">
+          <img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1495" height="863" />
+        </div>
+        <div class="overlay">
+          <div class="meta">
+            <span class="tag">{p.tag}</span>
+            <h3>{p.title}</h3>
+          </div>
+          <span class="visit">Visit site <Icon name="external" size={16} /></span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <div class="all" data-reveal>
+    <a href="/work" class="btn-ghost" data-magnetic="0.25">View all work <Icon name="arrow" size={18} /></a>
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .item {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    display: block;
+  }
+  .shot { position: absolute; inset: 0; }
+  .shot img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform-origin: top center;
+    transition: transform 0.6s var(--ease-out-expo);
+  }
+  .item:hover .shot img { transform: scale(1.05); }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 22px;
+    background: linear-gradient(to top, rgba(6, 14, 28, 0.92) 0%, rgba(6, 14, 28, 0.2) 55%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.45s;
+  }
+  .item:hover .overlay { opacity: 1; }
+  .meta { transform: translateY(10px); transition: transform 0.45s var(--ease-out-expo); }
+  .item:hover .meta { transform: translateY(0); }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-emerald-light);
+    margin-bottom: 8px;
+  }
+  .meta h3 { font-size: 22px; font-weight: 700; font-family: var(--font-display); }
+  .visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.45s 0.05s, transform 0.45s 0.05s var(--ease-out-expo);
+  }
+  .item:hover .visit { opacity: 1; transform: translateY(0); }
+
+  .all { text-align: center; margin-top: 44px; }
+
+  @media (max-width: 880px) {
+    .grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; }
+    .overlay { opacity: 1; }
+  }
+</style>

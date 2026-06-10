@@ -1,0 +1,206 @@
+---
+import { stats } from '../../data/content';
+import Icon from '../Icon.astro';
+---
+<section class="hero" data-hero>
+  <div class="container hero-inner">
+    <div class="badge" data-hero-fade>
+      <span class="badge-dot"></span>
+      Design · Develop · Support
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line-wrap"><span class="line" data-hero-line>Custom websites for</span></span>
+      <span class="line-wrap"><span class="line gradient-text" data-hero-line>established service</span></span>
+      <span class="line-wrap"><span class="line gradient-text" data-hero-line>businesses.</span></span>
+    </h1>
+
+    <p class="hero-sub" data-hero-fade>
+      We design clean, conversion-focused websites that build trust, reduce
+      friction, and turn visitors into real inquiries.
+    </p>
+
+    <div class="hero-actions" data-hero-fade>
+      <a href="/work" class="btn-primary" data-magnetic="0.35">
+        View our work <Icon name="arrow" size={18} />
+      </a>
+      <a href="#pricing" class="btn-ghost" data-magnetic="0.25">See pricing</a>
+    </div>
+
+    <div class="hero-stats" data-hero-fade>
+      {stats.map((s) => (
+        <div class="stat">
+          <div class="stat-value">
+            <span data-count={s.value} data-count-decimals={s.suffix === '.0' ? '1' : '0'}>0</span
+            >{s.suffix !== '.0' && <span>{s.suffix}</span>}
+          </div>
+          <div class="stat-label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <a href="#services" class="scroll-hint" aria-label="Scroll to content">
+    <span class="mouse"><span class="wheel"></span></span>
+    Scroll
+  </a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 0 90px;
+  }
+  .hero-inner { text-align: center; max-width: 920px; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--color-emerald-light);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+  }
+  .badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--color-emerald);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+    animation: pulse-glow 2.5s infinite;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(40px, 8vw, 78px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+  }
+  .line-wrap { display: block; overflow: hidden; padding-bottom: 0.06em; }
+  .line { display: block; }
+
+  .hero-sub {
+    margin: 30px auto 0;
+    max-width: 600px;
+    font-size: clamp(16px, 2vw, 20px);
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-stats {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+  }
+  .stat-value span:last-child { color: var(--color-emerald); }
+  .stat-label {
+    margin-top: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.5;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .mouse {
+    width: 24px;
+    height: 38px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+  }
+  .wheel {
+    width: 4px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--color-emerald);
+    animation: wheel 1.6s infinite;
+  }
+  @keyframes wheel {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(10px); opacity: 0; }
+  }
+
+  /* CSS-driven hero intro — always plays on load, no JS dependency.
+     Defaults (outside this query) leave everything visible, so reduced-motion
+     users and the no-JS case both get a fully readable hero. */
+  @media (prefers-reduced-motion: no-preference) {
+    .line {
+      transform: translateY(110%);
+      animation: heroLine 1s var(--ease-out-expo) both;
+    }
+    .hero-title .line-wrap:nth-child(1) .line { animation-delay: 0.10s; }
+    .hero-title .line-wrap:nth-child(2) .line { animation-delay: 0.22s; }
+    .hero-title .line-wrap:nth-child(3) .line { animation-delay: 0.34s; }
+
+    .badge,
+    .hero-sub,
+    .hero-actions,
+    .hero-stats {
+      opacity: 0;
+      animation: heroFade 0.9s var(--ease-out-expo) both;
+    }
+    .badge { animation-delay: 0.45s; }
+    .hero-sub { animation-delay: 0.58s; }
+    .hero-actions { animation-delay: 0.70s; }
+    .hero-stats { animation-delay: 0.82s; }
+  }
+
+  @keyframes heroLine {
+    from { transform: translateY(110%); }
+    to { transform: translateY(0); }
+  }
+  @keyframes heroFade {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 720px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+    .scroll-hint { display: none; }
+  }
+</style>

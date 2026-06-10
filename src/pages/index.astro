@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Services from '../components/sections/Services.astro';
+import Process from '../components/sections/Process.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import Maintenance from '../components/sections/Maintenance.astro';
+import About from '../components/sections/About.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import Contact from '../components/sections/Contact.astro';
+import { organizationSchema, websiteSchema } from '../lib/structuredData';
+---
+<BaseLayout structuredData={[organizationSchema, websiteSchema]}>
+  <Hero />
+  <Services />
+  <Process />
+  <Pricing />
+  <Maintenance />
+  <About />
+  <Testimonials />
+  <Contact />
+</BaseLayout>

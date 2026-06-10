@@ -1,0 +1,90 @@
+---
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Icon from '../Icon.astro';
+import { steps } from '../../data/content';
+---
+<Section id="how-it-works">
+  <SectionHeader
+    eyebrow="How it works"
+    title="A simple process, <span class='gradient-text'>built around you</span>"
+    subtitle="A straightforward process designed around your business."
+  />
+
+  <div class="steps" data-reveal-group>
+    <div class="track" aria-hidden="true"></div>
+    {steps.map((s, i) => (
+      <article class="step" data-reveal-item>
+        <div class="node">
+          <span class="num">{String(i + 1).padStart(2, '0')}</span>
+          <div class="ring"><Icon name={s.icon} size={28} /></div>
+        </div>
+        <h3>{s.title}</h3>
+        <p>{s.description}</p>
+      </article>
+    ))}
+  </div>
+</Section>
+
+<style>
+  .steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+  .track {
+    position: absolute;
+    top: 44px;
+    left: 16%;
+    right: 16%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.4), transparent);
+  }
+  .step { text-align: center; position: relative; }
+  .node {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 22px;
+  }
+  .ring {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(8, 16, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-emerald);
+    transition: transform 0.45s var(--ease-spring), border-color 0.4s, box-shadow 0.4s;
+  }
+  .step:hover .ring {
+    transform: translateY(-4px);
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 14px 40px rgba(16, 185, 129, 0.2);
+  }
+  .num {
+    position: absolute;
+    top: -8px;
+    right: -4px;
+    z-index: 2;
+    min-width: 30px;
+    height: 30px;
+    padding: 0 6px;
+    border-radius: 50px;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+  .step h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+  .step p { font-size: 15px; color: rgba(255, 255, 255, 0.62); line-height: 1.75; max-width: 280px; margin-inline: auto; }
+
+  @media (max-width: 880px) {
+    .steps { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; gap: 44px; }
+    .track { display: none; }
+  }
+</style>

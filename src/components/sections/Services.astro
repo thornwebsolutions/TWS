@@ -1,0 +1,92 @@
+---
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Icon from '../Icon.astro';
+import { services } from '../../data/content';
+---
+<Section id="services" panel>
+  <SectionHeader
+    eyebrow="What we do"
+    title="Everything you need to <span class='gradient-text'>show up &amp; stand out</span>"
+    subtitle="Everything you need to establish and maintain a powerful online presence."
+  />
+
+  <div class="grid" data-reveal-group>
+    {services.map((s) => (
+      <article class="card" data-reveal-item data-cursor>
+        <div class="glow"></div>
+        <div class="icon"><Icon name={s.icon} size={30} /></div>
+        <h3>{s.title}</h3>
+        <p>{s.description}</p>
+      </article>
+    ))}
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 40px 32px;
+    overflow: hidden;
+    transition: transform 0.45s var(--ease-out-expo), border-color 0.4s, background 0.4s;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), transparent 50%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.045);
+    border-color: transparent;
+  }
+  .card:hover::before { opacity: 1; }
+  .glow {
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.25), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+  }
+  .card:hover .glow { opacity: 1; }
+
+  .icon {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(5, 150, 105, 0.08));
+    color: var(--color-emerald);
+    margin-bottom: 24px;
+    transition: transform 0.45s var(--ease-spring);
+  }
+  .card:hover .icon { transform: scale(1.1) rotate(-4deg); }
+  .card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; position: relative; }
+  .card p { font-size: 15px; color: rgba(255, 255, 255, 0.62); line-height: 1.75; position: relative; }
+
+  @media (max-width: 880px) {
+    .grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; }
+  }
+</style>

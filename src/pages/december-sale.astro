@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+
+const features = [
+  'Custom, mobile-responsive design',
+  'Fast 5-day average turnaround',
+  'SEO-optimized for visibility',
+  'Unlimited revisions until you love it',
+  'Free SSL & hosting setup included',
+  'No long-term contracts',
+];
+---
+<BaseLayout
+  title="December Sale - 80% Off Website Design | Thorn Web Solutions"
+  description="December Sale: 80% off professional custom website design. Get a professional website for your business at our lowest price of the year."
+  noindex
+  bare
+>
+  <header class="sale-header">
+    <a href="/" class="logo">Thorn<span>.</span></a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="banner">Limited Time Offer</div>
+      <h1>December Sale: <span class="gradient-text">80% Off</span> Website Design</h1>
+      <p>Get a professional, custom website for your business at our lowest price of the year.</p>
+      <p class="urgency">Sale ends December 31st</p>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="card">
+      <div class="sale-badge">December Sale</div>
+      <div class="label">Website Package</div>
+      <div class="title">Design &amp; Development</div>
+
+      <div class="row">
+        <div class="row-label">
+          <strong>One-Time Setup <span class="tag">80% Off</span></strong>
+          <span>Up to 5 custom pages</span>
+        </div>
+        <div class="row-price">
+          <span class="orig">$999</span>
+          <div class="amount"><sup>$</sup>199</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-label">
+          <strong>Monthly Management <span class="tag">Save $26</span></strong>
+          <span>Ongoing support &amp; updates</span>
+        </div>
+        <div class="row-price">
+          <span class="orig">$125</span>
+          <div class="amount"><sup>$</sup>99<sub>/mo</sub></div>
+        </div>
+      </div>
+
+      <div class="features">
+        {features.map((f) => (
+          <div class="feature"><Icon name="check" size={18} /><span>{f}</span></div>
+        ))}
+      </div>
+
+      <p class="sale-urgency">Sale ends December 31st</p>
+      <a href={site.phoneHref} class="btn-primary cta">Call Now: {site.phoneDisplay}</a>
+    </div>
+  </section>
+
+  <div class="trust">
+    <p><strong>Questions?</strong> Call or text: {site.phoneDisplay}</p>
+    <p>Email: {site.email}</p>
+  </div>
+
+  <footer class="sale-footer">
+    <p>&copy; 2025 {site.name}. All rights reserved. · <a href="/">Visit Main Site</a></p>
+  </footer>
+</BaseLayout>
+
+<style>
+  .sale-header { padding: 28px 30px; text-align: center; }
+  .logo { font-family: var(--font-display); font-size: 24px; font-weight: 700; }
+  .logo span { color: var(--color-emerald); }
+
+  .hero { text-align: center; padding: 30px 30px 50px; }
+  .hero-inner { max-width: 700px; margin-inline: auto; }
+  .banner {
+    display: inline-block;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(34px, 6vw, 50px); font-weight: 700; line-height: 1.15; margin-bottom: 18px; }
+  .hero p { font-size: 18px; color: rgba(255, 255, 255, 0.75); max-width: 550px; margin: 0 auto 8px; }
+  .urgency { color: #f87171 !important; font-weight: 600; margin-top: 14px !important; }
+
+  .pricing-section { padding: 30px 30px 70px; }
+  .card {
+    max-width: 520px;
+    margin-inline: auto;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
+    padding: 50px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #38bdf8);
+  }
+  .sale-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  }
+  .label { font-size: 14px; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 32px; }
+
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .row:last-of-type { border-bottom: none; margin-bottom: 26px; }
+  .row-label { text-align: left; }
+  .row-label strong { display: block; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .row-label > span { font-size: 13px; color: rgba(255, 255, 255, 0.5); }
+  .tag {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: var(--color-emerald);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 6px;
+  }
+  .row-price { display: flex; align-items: baseline; justify-content: flex-end; }
+  .orig { font-size: 18px; color: rgba(255, 255, 255, 0.4); text-decoration: line-through; margin-right: 10px; }
+  .amount { font-size: 36px; font-weight: 700; color: var(--color-emerald); }
+  .amount sup { font-size: 18px; top: -0.6em; }
+  .amount sub { font-size: 14px; color: rgba(255, 255, 255, 0.6); font-weight: 500; }
+
+  .features { text-align: left; margin-bottom: 30px; }
+  .feature { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 15px; color: rgba(255, 255, 255, 0.82); }
+  .feature :global(svg) { color: var(--color-emerald); flex-shrink: 0; }
+  .features .feature:first-child { margin-top: 12px; }
+
+  .sale-urgency { color: rgba(255, 255, 255, 0.6); font-size: 14px; font-weight: 500; margin-bottom: 18px; }
+  .cta { width: 100%; }
+
+  .trust { text-align: center; padding: 0 30px 60px; max-width: 600px; margin-inline: auto; }
+  .trust p { font-size: 15px; color: rgba(255, 255, 255, 0.6); margin-bottom: 8px; }
+  .trust strong { color: rgba(255, 255, 255, 0.85); }
+
+  .sale-footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.4); font-size: 14px; }
+  .sale-footer a { color: rgba(255, 255, 255, 0.5); }
+  .sale-footer a:hover { color: var(--color-emerald); }
+
+  @media (max-width: 600px) {
+    .card { padding: 40px 26px; }
+    .row { flex-direction: column; align-items: flex-start; }
+    .row-price { align-self: flex-start; }
+  }
+</style>

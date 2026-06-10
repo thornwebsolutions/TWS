@@ -1,0 +1,84 @@
+---
+import Section from '../Section.astro';
+import { aboutBio } from '../../data/content';
+import { site as siteInfo } from '../../data/site';
+---
+<Section id="about">
+  <div class="about">
+    <div class="photo-col" data-reveal data-reveal-y="40">
+      <div class="photo" data-parallax="0.05">
+        <img src="/assets/chris-family.webp" alt="Chris Thorn, Founder of Thorn Web Solutions, with his family" loading="lazy" decoding="async" width="720" height="900" />
+      </div>
+      <div class="badge-float">
+        <strong>10+ yrs</strong>
+        <span>software engineering</span>
+      </div>
+    </div>
+
+    <div class="text">
+      <span class="eyebrow" data-reveal>Meet the founder</span>
+      <h2 data-reveal>{siteInfo.founder}</h2>
+      <p class="role" data-reveal>Founder, {siteInfo.name}</p>
+      <div class="bio">
+        {aboutBio.map((p) => <p data-reveal>{p}</p>)}
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .photo-col { position: relative; }
+  .photo {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+  }
+  .photo img { width: 100%; display: block; }
+  .badge-float {
+    position: absolute;
+    bottom: -18px;
+    right: -18px;
+    background: rgba(8, 16, 30, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 16px;
+    padding: 14px 20px;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  }
+  .badge-float strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--color-emerald);
+  }
+  .badge-float span { font-size: 12px; color: rgba(255, 255, 255, 0.6); }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-emerald);
+    margin-bottom: 14px;
+  }
+  .text h2 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 40px); font-weight: 700; }
+  .role { color: var(--color-emerald-light); font-size: 16px; margin: 6px 0 24px; }
+  .bio p { color: rgba(255, 255, 255, 0.72); font-size: 16px; line-height: 1.85; margin-bottom: 16px; }
+  .bio p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 880px) {
+    .about { grid-template-columns: 1fr; gap: 50px; }
+    .photo-col { max-width: 320px; margin-inline: auto; }
+    .text { text-align: center; }
+    .bio { text-align: left; }
+  }
+</style>
