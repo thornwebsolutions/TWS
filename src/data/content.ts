@@ -143,8 +143,8 @@ export const tiers: Tier[] = [
   {
     label: 'Starting at',
     name: '"Launch" Website',
-    price: '1,000',
-    amount: 1000,
+    price: '2,000',
+    amount: 2000,
     description: 'Everything an established business needs to look credible online.',
     featured: true,
     features: [
